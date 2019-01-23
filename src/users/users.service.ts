@@ -16,4 +16,9 @@ export class UsersService {
         return await this.userRepositiry.find();
     }
 
+    async create(user: User): Promise<User> {
+        const user_model = await this.userRepositiry.create(user);
+        return await this.userRepositiry.save(user_model);
+    }
+
 }
